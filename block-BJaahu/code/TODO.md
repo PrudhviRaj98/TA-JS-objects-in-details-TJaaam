@@ -35,22 +35,41 @@ let secondQuestion = new Question(
 ```
 ```js
 bookMethods = {
-  isAnswerIndex(){
-    return this.options[this.correctAnswerIndex] == this.correctAnswerIndex
-  }
+  isAnswerIndex(index){
+    return index === this.correctAnswerIndex;
+  },
   getCorrectAnswerIndex(){
-    return this.correctAnswerIndex
-  }
+    return this.options[this.correctAnswerIndex];
+  },
 
-}
+};
 
 function Book (title,options,correctAnswerIndex){
-  let book = object.create(BookMethods)
+  let book = Object.create(bookMethods)
   this.title = title
   this.options = options
   this.correctAnswerIndex = correctAnswerIndex
   return book
 }
+//pesudo classicAL
+book.prototype = {
+  isAnswerIndex(index){
+    return index === this.correctAnswerIndex;
+  },
+  getCorrectAnswerIndex(){
+    return this.options[this.correctAnswerIndex];
+  },
+
+};
+
+function Book (title,options,correctAnswerIndex){
+  //let book = Object.create(book.prototype)
+  this.title = title
+  this.options = options
+  this.correctAnswerIndex = correctAnswerIndex
+  //return book
+}
+
 
 
 ```
