@@ -33,3 +33,24 @@ let secondQuestion = new Question(
   2
 );
 ```
+```js
+bookMethods = {
+  isAnswerIndex(){
+    return this.options[this.correctAnswerIndex] == this.correctAnswerIndex
+  }
+  getCorrectAnswerIndex(){
+    return this.correctAnswerIndex
+  }
+
+}
+
+function Book (title,options,correctAnswerIndex){
+  let book = object.create(BookMethods)
+  this.title = title
+  this.options = options
+  this.correctAnswerIndex = correctAnswerIndex
+  return book
+}
+
+
+```
