@@ -29,20 +29,22 @@ Write 2 tests for all the different ways of creating object. Test all the method
 
 function createUser(name,id,noOfProjects){
   let user = {}
-  this.name = name;
-  this.id = id;
-  this.noOfProjects = noOfProjects
+  user.name = name;
+  user.id = id;
+  user.noOfProjects = noOfProjects
   user.getProjects = function(){
-    return this.noOfProjects
+    return user.noOfProjects
   }
   user.changeName = function(newName){
-    return this.name
+    let prevName = user.name
+    user.name = newName
+    return prevName;
   }
   user.incrementProject = function(){
-    return noOfProjects++
+    return user.noOfProjects++
   }
   user.decrementProject = function(){
-    return noOfProjects--
+    return user.noOfProjects--
   }
   return user
 }
@@ -51,24 +53,26 @@ function createUser(name,id,noOfProjects){
 
 let methods = {
   getProjects(){
-    return this.noOfProjects
-  }
+    return this.noOfProjects;
+  },
   changeName (newName){
-    return this.name
-  }
+    let prevName = this.name
+    this.name = newName
+    return prevName;
+  },
   incrementProject (){
-    return noOfProjects++
-  }
+    return this.noOfProjects++;
+  },
   decrementProject(){
-    return noOfProjects--
-  }
-}
+    return this.noOfProjects--;
+  },
+};
 
 function createUser(name,id,noOfProjects){
-  let user = Object.create(Methods)
-  this.name = name;
-  this.id = id;
-  this.noOfProjects = noOfProjects
+  let user = Object.create(methods)
+  user.name = name;
+  user.id = id;
+  user.noOfProjects = noOfProjects
   return user
 }
 
@@ -101,20 +105,6 @@ let first = new createUser("Raj",909,21)
 
 // using Class way
 
-createUser.prototype = {
-  getProjects(){
-    return this.noOfProjects
-  }
-  changeName (newName){
-    return this.name
-  }
-  incrementProject (){
-    return noOfProjects++
-  }
-  decrementProject(){
-    return noOfProjects--
-  }
-}
 
 class createUser{
   constructor(name,id,noOfProjects){
