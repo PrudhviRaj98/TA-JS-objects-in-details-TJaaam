@@ -1,6 +1,33 @@
 # More about class
 
 - Create a class named `Square` which accepts one parameter `side` and will set two property `width` and `height` to the value of `side`.
+```js
+class Square(side){
+    constructor(width,height){
+        this.width = width
+        this.height = height
+    }
+    description(){
+        alert(`The square is ${width} * ${height}`)
+    }
+    calcArea(){
+        return this.area() 
+    }
+    get area(){
+        return this.width * this.height
+    }
+    set area(value){
+        this.width = value
+        this.height = value
+    }
+    static isEqual (first,second){
+        return if first.calcArea() === second.calcArea()
+    }
+}
+let first = new Square(6);
+let second = new Square(7);
+
+```
 
 - Add a method named `description` that will alert a message saying `The square is ${width} x ${height}`
 
@@ -19,6 +46,33 @@
 - Check the `isEqual` method and pass the two instance you created above.
 
 ## User Class
+```js
+class User{
+    constructor(firstName,lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName(){
+        return this.firstName + this.lastName;
+    }
+    set fullName(fullname){
+        let divide = fullname.split(" ")
+        this.firstName = divide[0]
+        this.lastName = divide[1]
+        if (fullname.length < 5){
+            alert(`full name should be more than 5 characters`)
+        }
+    }
+    nameContains(string){
+        if (this.firstName.includes(string) || this.lastName.includes(string)){
+            return true;
+        }  
+    }
+}
+let name1 = new user("Ravi", "Teja");
+let name2 = new user("Prudhvi","Raj");
+
+```
 
 - Create a class named `User` that accepts `firstName` and `lastName` property
 
