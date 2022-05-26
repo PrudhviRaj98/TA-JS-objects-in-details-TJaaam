@@ -54,6 +54,7 @@ personTwo = new createUser("shivani", 22)
 
 // 7. Try calling `personOne.sayHello()` and `personTwo.sayHello()`. Check if you get the required output.
 //ANS: yes it is working
+
 // 8. Convert the `createUser` function into `User` class.
 
 class createUser {
@@ -70,6 +71,7 @@ class createUser {
 // 9. Check by creating two instance of the class using data of two different persons and re-assign the value of `personOne` and `personTwo`
 personOne = new createUser("Raj", 21)
 personTwo = new createUser("shivani", 22)
-    // 10. Try calling `personOne.sayHello()` and `personTwo.sayHello()`. Check if you get the required output.
+
+// 10. Try calling `personOne.sayHello()` and `personTwo.sayHello()`. Check if you get the required output.
 
 //ANS: yes it is woriking
