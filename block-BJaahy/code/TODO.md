@@ -1,27 +1,31 @@
 # More about class
 
 - Create a class named `Square` which accepts one parameter `side` and will set two property `width` and `height` to the value of `side`.
+
 ```js
-class Square(side){
-    constructor(width,height){
-        this.width = width
-        this.height = height
+class Square{
+    constructor(side){
+        this.width = side;
+        this.height = side;
     }
     description(){
-        alert(`The square is ${width} * ${height}`)
+        alert(`The square is ${this.width} * ${this.height}`)
     }
     calcArea(){
-        return this.area() 
+        return this.width * this.height;
     }
     get area(){
-        return this.width * this.height
+        return this.width * this.height;
     }
     set area(value){
-        this.width = value
-        this.height = value
+        let side = Math.sqrt(value);
+        this.width = side;
+        this.height = side;
     }
-    static isEqual (first,second){
-        return if first.calcArea() === second.calcArea()
+    static isEqual (a,b){s
+        if (a.area === b.area){
+            return true;
+        }
     }
 }
 let first = new Square(6);
@@ -51,10 +55,10 @@ class User{
     constructor(firstName,lastName){
         this.firstName = firstName;
         this.lastName = lastName;
-    }
+    },
     get fullName(){
         return this.firstName + this.lastName;
-    }
+    },
     set fullName(fullname){
         let divide = fullname.split(" ")
         this.firstName = divide[0]
@@ -62,11 +66,9 @@ class User{
         if (fullname.length < 5){
             alert(`full name should be more than 5 characters`)
         }
-    }
+    },
     nameContains(string){
-        if (this.firstName.includes(string) || this.lastName.includes(string)){
-            return true;
-        }  
+        return `${this.firstName} ${this.lastName}`.includes(string) ;
     }
 }
 let name1 = new user("Ravi", "Teja");
