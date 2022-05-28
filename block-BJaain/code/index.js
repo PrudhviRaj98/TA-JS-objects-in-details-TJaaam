@@ -42,7 +42,7 @@ var myObject = {};
 myObject.someMethod = function() {
     console.log(this);
 };
-myObject.someMethod(); //Value Of This is somemethod
+myObject.someMethod(); //Value Of This is my object
 
 // ------------
 
@@ -137,16 +137,16 @@ obj.getThis();
 // Output window
 obj.getThis.call(a);
 
-// Output function
+// Output obj
 obj.getThis2();
 
-// Output
+// Output a
 obj.getThis2.call(a);
 
-// Output
+// Output window
 obj.getThis3();
 
-// Output
+// Output obj
 obj.getThis4();
 
 // -------------
@@ -178,13 +178,13 @@ let person = {
         return this.name;
     },
 };
-console.log(person.details.print()); // output jay person
+console.log(person.details.print()); // output jay details
 console.log(person.print()); // output jay person
 
 let name1 = person.print;
 let name2 = person.details;
 
-console.log(name1()); // output undefined (dought)
+console.log(name1()); // output undefined 
 console.log(name2.print()); // output? jay details
 
 // --------
