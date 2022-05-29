@@ -77,7 +77,7 @@ let animalMethods = {
 let dogMethods = {
     bark: function(){
         alert(`I am ${this.name} and I can bark 🐶`)
-    },chag
+    },
     changeName:function(newName){
         return this.name = newName;
     },
@@ -89,16 +89,21 @@ let dogMethods = {
     },
 };
 
-Object.setPrototypeOf(dogMethods,animalMethods);
+Object.setPrototypeOf(dogMethods,animalMethods)
 
-function animal(name, color){
+function animal(location,numberofLegs){
     let user = Object.create(animalMethods); 
-    user.name = name;
-    user.color = color;
     user.location = location;
+    user.numberofLegs = numberofLegs;
     return user;
 }
-let first = animal("hyd",5);
+function dog(location, numberofLegs,name,color){
+    let user = animal(location,numberofLegs); 
+    Object.setPrototypeOf(user,dogMethods);
+    user.name = name;
+    user.color = color;
+    return user;
+}
 
 
 ```
@@ -152,13 +157,21 @@ let catMethods = {
     },
 };
 
-Object.setPrototypeOf(catMethods,animalMethods,location);
+Object.setPrototypeOf(catMethods,animalMethods);
 
-function animal(name, colorofEyes){
+function animal(location, numberofLegs){
     let user = Object.create(animalMethods); 
-    user.name = name;
-    user.colorofEyes = colorofEyes;
     user.location = location;
+    user.numberofLegs = numberofLegs;
     return user;
 }
-let first = animal("hyd",5);
+function cat(name,colorofEyes,location,numberofLegs){
+    let user = animal(location,numberofLegs);
+    Object.setPrototypeOf(user,catMethods);
+    user.colorofEyes = colorofEyes;
+    user.name = name;
+    return user;
+}
+
+
+
