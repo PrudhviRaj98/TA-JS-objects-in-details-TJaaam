@@ -25,15 +25,15 @@ dog.prototype = {
     },
 };
 
-Object.setPrototypeOf(animal.prototype, dog.prototype)
+Object.setPrototypeOf(dog.prototype, animal.prototype)
 
-function animal(name, color, location, numberOfLegs) {
-    dog.call(this, name, color)
+function animal(location, numberOfLegs) {
     this.location = location;
     this.numberOfLegs = numberOfLegs;
 }
 
-function dog(name, color) {
+function dog(name, color, location, numberOfLegs) {
+    dog.call(this, location, numberOfLegs)
     this.name = name;
     this.color = color;
 }
@@ -42,29 +42,13 @@ function dog(name, color) {
 let first = new animal("delhi", "black", "hyd", 10);
 ///////////////////////////////////////////////////////
 
-function animal(name, colorOfEyes, location, numberOfLegs) {
-    cat.call(this, name, colorOfEyes)
-    this.location = location;
-    this.numberOfLegs = numberOfLegs;
-}
-
-function cat(name, colorOfEyes) {
+function cat(name, colorOfEyes, location, numberOfLegs) {
+    animal.call(this, location, numberOfLegs)
     this.name = name;
     this.colorOfEyes = colorOfEyes;
 }
 
-animal.prototype = {
-    eat() {
-        console.log(`I live in ${location} and I can eat`)
-    },
-    changeLocation(newloc) {
-        return this.location = newloc
-    },
-    summary() {
-        return `I live in ${location} and I have ${numberOfLegs}`
-    },
-};
-
+Object.setPrototypeOf(cat.prototype, animal.prototype)
 
 cat.Prototype = {
     meow() {
