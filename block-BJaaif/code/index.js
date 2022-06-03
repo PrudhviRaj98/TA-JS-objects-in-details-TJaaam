@@ -5,7 +5,7 @@
 /*** CHALLENGE 1 of 1 ***/
 
 function makePerson(name, age) {
-    let user = Object.create();
+    let user = {};
     user.name = name;
     user.age = age;
     return user;
@@ -48,8 +48,10 @@ var sandra = personFromPersonStore('Sandra', 26);
 // sandra.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 3 of 3 ***/
+personStore.introduce = function() {
+    console.log(`Hi, my name is ${this.name}`);
+}
 
-// add code here
 
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
@@ -58,14 +60,15 @@ var sandra = personFromPersonStore('Sandra', 26);
 ****************************************************************/
 
 /*** CHALLENGE 1 of 3 ***/
-personConstructor.prototype = {
-    greet() {
-        console.log("Hello");
-    },
-};
+
 
 function PersonConstructor() {
-
+    this.greet = function() {
+        console.log("Hello");
+    };
+    this.introduce = function() {
+        console.log(`hie my name is ${this.name}`);
+    }
 }
 
 // /********* Uncomment this line to test your work! *********/
@@ -90,7 +93,7 @@ var mike = new personFromConstructor('Mike', 30);
 // mike.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 3 of 3 ***/
-// add code here
+
 
 // mike.introduce(); // -> Logs 'Hi, my name is Mike'
 
@@ -116,8 +119,8 @@ var george = new PersonClass();
 /*** CHALLENGE 2 of 3 ***/
 
 class DeveloperClass extends PersonClass {
-    constructor() {
-        super()
+    constructor(name) {
+        super(name)
     }
     introduce() {
         console.log(`Hello world, my name is ${this.name}`)
@@ -141,22 +144,21 @@ var userFunctionStore = {
 
 function userFactory(name, score) {
     let user = Object.create(userFunctionStore);
-    user.type = 'admin';
+    user.type = 'user';
     user.name = name;
     user.score = score;
     return user;
 }
 
-var adminFunctionStore = {
-    sharePublicMessage() {
-        console.log("Welcome Users");
-    },
-};
+var adminFunctionStore = Object.create(userFunctionStore);
 
 function adminFactory(name, score) {
-    userFactory.call(this, name, score);
-    let user1 = Object.create(adminFunctionStore);
-    return user;
+    let obj = userFactory(name, score);
+    obj.type = "admin";
+    Object.setPrototypeOf(obj, adminFunctionStore);
+}
+adminFunctionStore.sharePublicMessage = function() {
+    console.log(`welcome users`)
 }
 
 /* Put code here for a method called sharePublicMessage*/
