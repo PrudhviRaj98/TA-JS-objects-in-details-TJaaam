@@ -5,9 +5,15 @@
 
 // myMap function goes here
 
-function myMap() {
-
-}
+Array.prototype.myMap = function(cb) {
+    let final = [];
+    for (let i = 0; i < this.length; i++) {
+        const element = this[i];
+        final.push(cb(element, i, this));
+        console.log(element);
+    }
+    return final;
+};
 
 // Test the myMap function you created above
 
@@ -34,6 +40,15 @@ After adding the function test it using the code below.
 
 // You code goes here
 
+Array.prototype.myFilter = function(cb) {
+    let newarr = [];
+    for (let i = 0; i < this.length; i++) {
+        const element = this[i];
+        final.push(cb(element));
+    }
+    return final;
+}
+
 let even = numbers.myFilter(function(num) {
     return num % 2 === 0;
 });
@@ -54,6 +69,9 @@ Make sure it does not the changes the original array.
 */
 
 // You code goes here
+Array.prototype.shuffle = function(cb) {
+    return [...this].sort(() => Math.random() - 0.5);
+};
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(numbers.shuffle());
@@ -67,7 +85,7 @@ new array and it should only contain unique elements in the array.
 Unique means no element should come multiple times.
 */
 
-// You code goes here
+
 
 // Test to check the shuffle method (It will return different output every time you call)
 let num = [1, 2, 3, 4, 2, 3, 6, 7, 7];
