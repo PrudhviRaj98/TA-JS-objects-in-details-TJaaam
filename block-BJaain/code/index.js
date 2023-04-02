@@ -132,22 +132,22 @@ obj.getThis3 = obj.getThis.bind(obj);
 obj.getThis4 = obj.getThis2.bind(obj);
 
 // Output window
-obj.getThis();
+obj.getThis(); // window
 
 // Output window
-obj.getThis.call(a);
+obj.getThis.call(a); // window
 
 // Output obj
-obj.getThis2();
+obj.getThis2(); //obj
 
 // Output a
-obj.getThis2.call(a);
+obj.getThis2.call(a); // a
 
 // Output window
-obj.getThis3();
+obj.getThis3(); // window
 
 // Output obj
-obj.getThis4();
+obj.getThis4(); // obj
 
 // -------------
 
@@ -184,8 +184,8 @@ console.log(person.print()); // output jay person
 let name1 = person.print;
 let name2 = person.details;
 
-console.log(name1()); // output undefined 
-console.log(name2.print()); // output? jay details
+console.log(name1()); // output ""
+console.log(name2.print()); // error
 
 // --------
 
@@ -218,7 +218,7 @@ let object = {
         console.log('this inside of outerFn doubleArrow()');
         console.log(this);
         return this.dataDouble.map((item) => {
-            console.log(this); // Output ?data double
+            console.log(this); // Output ?obj
             return item * 2;
         });
     },
