@@ -18,27 +18,25 @@ Methods
 - `summary()` - returns `I live in ${location} and I have ${numberOfLegs}`
 
 ```js
-let animalMethods = {
-    ear: function (){
-        console.log(`I live in ${this.location} and I can eat`)
+animal_methods ={
+    eat: function (){
+        console.log(`I live in ${this.location} and i can eat`)
     },
     changeLocation: function(newLocation){
         this.location = newLocation
         return this.location;
     },
     summary: function(){
-        return `I live in ${this.location} and I have ${this.numberofLegs}`
+        return `I live in ${this.location} and I have ${this.numberOfLegs}`
     },
-
-};
-
-function animal(location, numberofLegs){
-    let user = Object.create(animalMethods); 
-    user.location = location;
-    user.numberofLegs = numberofLegs;
-    return user;
 }
-let first = animal("hyd",5);
+
+function animal (location, numberoflegs){
+    let new = Object.Create(animal_methods)
+    new.location = location
+    new.numberoflegs = numberoflegs
+    return new
+}
 
 
 ```
