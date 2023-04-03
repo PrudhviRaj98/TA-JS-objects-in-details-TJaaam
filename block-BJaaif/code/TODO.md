@@ -29,10 +29,25 @@ Without editing the code you've already written, add an `introduce` method to th
 
 Create a function `PersonConstructor` that uses the `this` keyword to save a single property onto its scope called `greet`. `greet` should be a function that logs the string 'hello'.
 
+```js
+function personconstructor (){
+    this.greet = function (){
+        console.log("hello")
+    }
+}
+```
+
 #### Challenge 2/3
 
 Create a function `personFromConstructor` that takes as input a `name` and an `age`. When called, the function will create person objects using the `new` keyword instead of the Object.create method.
 
+```js
+function personfromconstructor (name, age){
+    this.greet = function (){
+        console.log("hello")
+    }
+}
+```
 #### Challenge 3/3
 
 Without editing the code you've already written, add an `introduce` method to the `PersonConstructor` function that logs "Hi, my name is [name]".
@@ -68,3 +83,7 @@ Make sure that `adminFactory` objects have access to `adminFunctionStore` method
 #### Challenge 5/5
 
 Create a method called `sharePublicMessage` that logs 'Welcome users!' and will be available to `adminFactory` objects, but not `userFactory` objects. Do not add this method directly in the `adminFactory` function.
+
+```js
+function adminfunctionstore
+```
