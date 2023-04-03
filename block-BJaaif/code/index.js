@@ -4,15 +4,13 @@
 
 /*** CHALLENGE 1 of 1 ***/
 
-function makePerson(name, age) {
-    let user = {};
-    user.name = name;
-    user.age = age;
-    return user;
+function makeperson (name, age){
+    let user ={}
+    user.name = name
+    user.age = age
+    return user
 }
-
-var vicky = makePerson('Vicky', 24);
-
+let vicky = makeperson("vicky", 24)
 // /********* Uncomment these lines to test your work! *********/
 // console.log(vicky.name); // -> Logs 'Vicky'
 // console.log(vicky.age); // -> Logs 24
@@ -23,11 +21,11 @@ var vicky = makePerson('Vicky', 24);
 
 /*** CHALLENGE 1 of 3 ***/
 
-var personStore = {
-    greet() {
-        console.log("hello");
-    },
-};
+let personStore ={
+    greet: function(){
+        console.log ("hello")
+    }
+}
 
 // /********* Uncomment this line to test your work! *********/
 // personStore.greet(); // -> Logs 'hello'
