@@ -26,31 +26,12 @@ animal.prototype = {
     },
 };
 
-dog.prototype = {
-    bark(){
-        alert(`I ${name} and I can bark`);
-    },
-    changeName(newname){
-        return this.name = newname;
-    },
-    changeColor(newcolor){
-        return this.color = newcolor;
-    },
-    summary(){
-        return `I am ${name} and I am of ${color} color. I can also bark`
-    },
-};
 
 Object.setPrototypeOf(animal.prototype,dog.prototype)
 
-function animal(name,color,location,numberOfLegs){
-    dog.call(this,name,color)
-    this.location = location;
-    this.numberOfLegs = numberOfLegs;
-}
-function dog(name,color){
-    this.name = name;
-    this.color = color;
+function animal(location, numberoflegs){
+    this.location = location
+    this.numberoflegs = numberoflegs
 }
 
 
@@ -81,7 +62,17 @@ Methods:
 - `changeColor(newColor)` - accepts the new color and updates the color of the dog
 - `summary()` - returns `I am ${name} and I am of ${color} color. I can also bark`
 ```js
-
+animal.prototype = {
+    eat(){
+        console.log(`I live in ${location} and I can eat`)
+    },
+    changeLocation(newloc){
+        return this.location = newloc
+    },
+    summary(){
+        return `I live in ${location} and I have ${numberOfLegs}`
+    },
+};
 dog.Prototype = {
     bark(){
         alert(`I ${name} and I can bark`);
@@ -97,7 +88,13 @@ dog.Prototype = {
     },
 };
 
+function animal(location, numberoflegs){
+    this.location = location
+    this.numberoflegs = numberoflegs
+}
+
 function dog(name,color){
+    animal.call(this, location,numberoflegs)
     this.name = name;
     this.color = color;
 }
