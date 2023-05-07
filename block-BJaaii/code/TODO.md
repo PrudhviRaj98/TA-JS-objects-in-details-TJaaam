@@ -12,9 +12,9 @@ Queue
 
 Data:
 
-- `stack`
+- `stack` "done"
 
-Methods:
+Methods: 
 
 - `push`: will accept a value and add to the stack. Stack adds data at the end
 - `pop`: will delete the last element (max index) of the stack
@@ -30,7 +30,8 @@ Getter
 #### Test
 
 ```js
-let myStack = new Stack();
+let myStack = new Stack(); new
+myStack.push('One');
 myStack.push('One');
 myStack.push('Two');
 console.log(myStack.length); // 2
