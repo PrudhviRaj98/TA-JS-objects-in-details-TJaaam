@@ -12,7 +12,7 @@ Queue
 
 Data:
 
-- `stack` "done"
+- `stack` 
 
 Methods: 
 
@@ -31,7 +31,6 @@ Getter
 
 ```js
 let myStack = new Stack(); new
-myStack.push('One');
 myStack.push('One');
 myStack.push('Two');
 console.log(myStack.length); // 2
