@@ -5,49 +5,49 @@ class person extends player {
         this.gender = gender;
     }
     eat() {
-
+        console.log(`${this.name} can eat`)
     }
     sleep() {
-
+        console.log(`${this.name} can sleep`)
     }
     walk() {
-
+        console.log(`${this.name} can walk`)
     }
 }
 
 class player extends person {
-    constructor(sportsName) {
-        super()
+    constructor(name, age, gender, sportsName) {
+        super(name, age, gender)
         this.sportsName = sportsName;
     }
     play() {
-
+        console.log(`${this.name} can play`)
     }
 }
 class teacher extends person {
-    constructor(instituteName) {
-        super()
+    constructor(name, age, gender, instituteName) {
+        super(name, age, gender)
         this.instituteName = instituteName;
     }
     teach() {
-
+        console.log(`${this.name} can teach`)
     }
 }
 class artist extends person {
-    constructor(kind) {
-        super()
+    constructor(name, age, gender, kind) {
+        super(name, age, gender)
         this.kind = kind;
     }
     createArt() {
-
+        console.log(`${this.name} can art`)
     }
 }
 class cricketer extends player {
-    constructor(teamName) {
-        super()
+    constructor(name, age, gender, sportsName, teamName) {
+        super(name, age, gender, sportsName)
         this.teamName = teamName;
     }
     playCricket() {
-
+        console.log(`${this.name} can play`)
     }
 }
